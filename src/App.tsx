@@ -2,25 +2,24 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navigation from './components/Navigation'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Tutorial from './pages/Tutorial'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Navigation />
-      </header>
+      <Router>
+        <header className="App-header">
+          <div className="App-header-wrap">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p className="title">playground.</p>
+          </div>
+          <Navigation />
+        </header>
+        <Switch>
+          <Route path="/tutorial" component={Tutorial} />
+        </Switch>
+      </Router>
     </div>
   );
 }
