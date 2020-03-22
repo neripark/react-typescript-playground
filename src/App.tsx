@@ -16,9 +16,11 @@ const App: React.FC = () => {
           </div>
           <Navigation />
         </header>
-        <Switch>
-          <Route path="/tutorial" component={Tutorial} />
-        </Switch>
+        <main className="Main">
+          <Switch>
+            <Route path="/tutorial" component={Tutorial} />
+          </Switch>
+        </main>
       </Router>
     </div>
   );

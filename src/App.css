@@ -1,16 +1,9 @@
 /* reset */
-* {
-  margin: 0;
-  padding: 0; }
 li {
   list-style: none;
 }
 
 /* app */
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 50px; pointer-events: none;
 }
@@ -53,6 +46,13 @@ li {
 .Nav-item-link {
   color: white;
   line-height: 1.5;
+}
+
+.Main {
+  max-width: 1120px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 50px 30px;
 }
 
 @keyframes App-logo-spin {
