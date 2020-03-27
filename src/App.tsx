@@ -1,9 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Navigation from './components/Navigation'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Tutorial from './pages/Tutorial'
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Navigation from "./components/Navigation";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Tutorial from "./pages/Tutorial";
 
 const App: React.FC = () => {
   return (
@@ -24,6 +24,6 @@ const App: React.FC = () => {
       </Router>
     </div>
   );
-}
+};
 
 export default App;
