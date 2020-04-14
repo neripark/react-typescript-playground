@@ -1,5 +1,6 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
+import UseMemoTutorial from "../components/UseMemoTutorial";
 
 type PageProps = {} & RouteComponentProps<{}>;
 
@@ -20,6 +21,9 @@ const Tutorial: React.FC<PageProps> = () => {
         <FancyButton>ボタンラベル</FancyButton>
         <FancyRefButton ref={ref}>ボタンラベル</FancyRefButton>
       </div>
+      <hr />
+      <h2>useMemoを使う</h2>
+      <UseMemoTutorial />
     </>
   );
 };
