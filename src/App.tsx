@@ -4,6 +4,7 @@ import "./App.css";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Tutorial from "./pages/Tutorial";
+import NextFocus from "./pages/NextFocus";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <main className="Main">
           <Switch>
             <Route path="/tutorial" component={Tutorial} />
+            <Route path="/nextfocus" component={NextFocus} />
           </Switch>
         </main>
       </Router>

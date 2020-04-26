@@ -15,6 +15,11 @@ const Navigation: React.FC = () => {
             tutorial
           </Link>
         </li>
+        <li className="Nav-item">
+          <Link to="/nextfocus" className="Nav-item-link">
+            next focus
+          </Link>
+        </li>
       </ul>
     </nav>
   );
