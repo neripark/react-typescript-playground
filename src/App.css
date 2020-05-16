@@ -63,3 +63,23 @@ li {
     transform: rotate(360deg);
   }
 }
+
+/* component */
+.async-component {
+  padding: 5px 15px;
+  background: #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 16px;
+  min-width: 150px;
+}
+
+.async-component.success {
+  background: #67a899;
+  color: #fff;
+}
+
+.async-component.error {
+  background: #cc0000;
+  color: #fff;
+}

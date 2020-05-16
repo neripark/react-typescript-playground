@@ -25,6 +25,11 @@ const Navigation: React.FC = () => {
             context test
           </Link>
         </li>
+        <li className="Nav-item">
+          <Link to="/async-component" className="Nav-item-link">
+            async component
+          </Link>
+        </li>
       </ul>
     </nav>
   );
