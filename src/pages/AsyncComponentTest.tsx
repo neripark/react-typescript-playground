@@ -28,7 +28,15 @@ const AsyncComponentTest: React.FC<PageProps> = () => {
 
   return (
     <>
-      <h3>MyComopnent</h3>
+      <h2>Async Component</h2>
+      <ul>
+        <li>使う側からPromiseを返す非同期関数を渡して、コンポーネント側のイベントで発火するようにする。</li>
+        <li>使う側とコンポーネント側、両方に then や catch を書くことができる。</li>
+        <ul>
+          <li>その場合は書いた順（メソッドチェーンがつながった順）に処理される。</li>
+          <li>catch を２箇所に書く場合は、最後意外のcatchにしっかりと例外を発生させるコードを書かないと、以降のcatchが実行されない。</li>
+        </ul>
+      </ul>
       <AsyncComponent asyncFunction={simulateAsync} />
     </>
   );
