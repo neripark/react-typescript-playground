@@ -30,6 +30,11 @@ const Navigation: React.FC = () => {
             async component
           </Link>
         </li>
+        <li className="Nav-item">
+          <Link to="/redux-text" className="Nav-item-link">
+            redux
+          </Link>
+        </li>
       </ul>
     </nav>
   );
