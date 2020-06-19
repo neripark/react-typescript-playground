@@ -1,5 +1,9 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
+import { storeFactory } from "../store/store";
+import { actions } from "../store/actions";
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
 
 type PageProps = {} & RouteComponentProps<{}>;
 
@@ -15,6 +19,17 @@ const defaultTodoData: Todo[] = [
 const ReduxText: React.FC<PageProps> = () => {
   const [ todos, updateTodos ] = React.useState(defaultTodoData);
   const [ newLabel, updateInputLabel ] = React.useState("");
+  //  // ReduxStore の initialState を注入
+  // const store = storeFactory({
+  //   Counter: {
+  //     count: 1000,
+  //   },
+  // });
+  const store = storeFactory(
+    {
+      todos: defaultTodoData
+    }
+  );
 
   const addTodo = () => {
     updateInputLabel("");
@@ -23,6 +38,7 @@ const ReduxText: React.FC<PageProps> = () => {
       done: false
     };
     updateTodos(prev => prev.concat(newItem));
+    store.dispatch(actions.addTodo);
   };
   
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

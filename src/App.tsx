@@ -8,10 +8,14 @@ import NextFocus from "./pages/NextFocus";
 import ContextTest from "./pages/ContextTest";
 import AsyncComponentTest from "./pages/AsyncComponentTest";
 import ReduxText from "./pages/ReduxText";
+import { Provider } from "react-redux";
+import { storeFactory } from "./store/store";
 
 const App: React.FC = () => {
+  const store = storeFactory();
   return (
     <div className="App">
+      <Provider store={store}>
       <Router>
         <header className="App-header">
           <div className="App-header-wrap">
@@ -30,6 +34,7 @@ const App: React.FC = () => {
           </Switch>
         </main>
       </Router>
+      </Provider>
     </div>
   );
 };
