@@ -14,9 +14,10 @@ const defaultTodoData: Todo[] = [
 
 const ReduxText: React.FC<PageProps> = () => {
   const [ todos, updateTodos ] = React.useState(defaultTodoData);
-  const [ newLabel, updateNewLabel ] = React.useState("");
+  const [ newLabel, updateInputLabel ] = React.useState("");
 
   const addTodo = () => {
+    updateInputLabel("");
     const newItem: Todo = {
       label: newLabel,
       done: false
@@ -25,7 +26,7 @@ const ReduxText: React.FC<PageProps> = () => {
   };
   
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateNewLabel(e.currentTarget.value);
+    updateInputLabel(e.currentTarget.value);
   }
 
   return (
@@ -34,8 +35,8 @@ const ReduxText: React.FC<PageProps> = () => {
       <ul style={listStyle}>
         {todos.map((element, index) => <Todo key={index} label={element.label} done={element.done} />)}
       </ul>
-      <input type="text" name="add-todo" defaultValue={newLabel} onChange={e => onChange(e)}/>
-      <button onClick={addTodo}>追加する</button>
+      <input type="text" name="add-todo" value={newLabel} onChange={e => onChange(e)}/>
+      <button onClick={addTodo} style={{marginLeft: "10px"}}>追加する</button>
     </>
   );
 };
@@ -84,7 +85,8 @@ const labelStyle = {
 }
 
 const todoInnerTextStyle: {[key: string]: string} = {
-  userSelect: "none"
+  userSelect: "none",
+  marginLeft: "10px"
 };
 
 
