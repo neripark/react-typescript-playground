@@ -35,6 +35,11 @@ const Navigation: React.FC = () => {
             redux
           </Link>
         </li>
+        <li className="Nav-item">
+          <Link to="/simple-redux" className="Nav-item-link">
+            simple redux
+          </Link>
+        </li>
       </ul>
     </nav>
   );

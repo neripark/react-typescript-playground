@@ -35,7 +35,7 @@ export const storeFactory = (injectState?: Partial<StoreState>) => {
 
 // takepepeさんのコード丸コピー
 const reducersFactory = (injectState?: Partial<StoreState>) => ({
-  Todos: reducerFactory(injectState?.Todos),
+  // Todos: reducerFactory(injectState?.Todos),
 });
 
 type StoreState = {

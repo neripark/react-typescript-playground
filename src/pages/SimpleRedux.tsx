@@ -16,43 +16,15 @@ const defaultTodoData: Todo[] = [
   { label: "Task A", done: false }
 ]
 
-const ReduxText: React.FC<PageProps> = () => {
-  const [ todos, updateTodos ] = React.useState(defaultTodoData);
-  const [ newLabel, updateInputLabel ] = React.useState("");
-  //  // ReduxStore の initialState を注入
-  // const store = storeFactory({
-  //   Counter: {
-  //     count: 1000,
-  //   },
-  // });
-  const store = storeFactory(
-    {
-      // todos: defaultTodoData
-    }
-  );
-
-  const addTodo = () => {
-    updateInputLabel("");
-    const newItem: Todo = {
-      label: newLabel,
-      done: false
-    };
-    updateTodos(prev => prev.concat(newItem));
-    // store.dispatch(actions.addTodo);
-  };
-  
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateInputLabel(e.currentTarget.value);
-  }
-
+const SimpleRedux: React.FC<PageProps> = () => {
   return (
     <>
-      <h1>Redux text.</h1>
+      <h1>Simple Redux example.</h1>
       <ul style={listStyle}>
-        {todos.map((element, index) => <Todo key={index} label={element.label} done={element.done} />)}
+        {/* {todos.map((element, index) => <Todo key={index} label={element.label} done={element.done} />)} */}
       </ul>
-      <input type="text" name="add-todo" value={newLabel} onChange={e => onChange(e)}/>
-      <button onClick={addTodo} style={{marginLeft: "10px"}}>追加する</button>
+      {/* <input type="text" name="add-todo" value={newLabel} onChange={e => onChange(e)}/>
+      <button onClick={addTodo} style={{marginLeft: "10px"}}>追加する</button> */}
     </>
   );
 };
@@ -106,4 +78,4 @@ const todoInnerTextStyle: {[key: string]: string} = {
 };
 
 
-export default ReduxText;
+export default SimpleRedux;

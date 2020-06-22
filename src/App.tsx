@@ -8,6 +8,7 @@ import NextFocus from "./pages/NextFocus";
 import ContextTest from "./pages/ContextTest";
 import AsyncComponentTest from "./pages/AsyncComponentTest";
 import ReduxText from "./pages/ReduxText";
+import SimpleRedux from "./pages/SimpleRedux";
 import { Provider } from "react-redux";
 import { storeFactory } from "./store/store";
 
@@ -31,6 +32,7 @@ const App: React.FC = () => {
             <Route path="/contexttest" component={ContextTest} />
             <Route path="/async-component" component={AsyncComponentTest} />
             <Route path="/redux-text" component={ReduxText} />
+            <Route path="/simple-redux" component={SimpleRedux} />
           </Switch>
         </main>
       </Router>
