@@ -37,7 +37,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
 //
 const generateLogger = (num: number) => {
   return (): void => {
-    console.log(`押されたのは ${num} 番目のボタンです。`)
+    console.log(`押されたのは ${num} 番目のボタンです。`);
   };
 };
 
