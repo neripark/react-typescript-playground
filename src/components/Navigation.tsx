@@ -30,6 +30,11 @@ const Navigation: React.FC = () => {
             async component
           </Link>
         </li>
+        <li className="Nav-item">
+          <Link to="/function-prop-test" className="Nav-item-link">
+            function prop test
+          </Link>
+        </li>
       </ul>
     </nav>
   );
