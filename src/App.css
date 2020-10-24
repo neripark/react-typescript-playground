@@ -80,13 +80,27 @@
   color: #fff;
 }
 
+.file-unit-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
 .file-input-test {
-  width: 100%;
-  height: 300px;
+  height: 200px;
   border: 1px solid #777;
   background: #eee;
   border-radius: 5px;
   display: block;
   position: relative;
   cursor: pointer;
+}
+
+.image-wrapper {
+  width: 400px;
+  margin-left: 30px;
+}
+
+.load-image {
+  width: 100%;
 }
