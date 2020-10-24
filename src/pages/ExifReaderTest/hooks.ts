@@ -39,8 +39,8 @@ const useHooks = () => {
       image.onload = () => {
         setImg(image);
       }
-      if (reader.result?.toString() === undefined) return ;
-      image.src = reader.result?.toString();
+      if (self.target!.result?.toString() === undefined) return ;
+      image.src = self.target!.result?.toString();
     }
     reader.readAsDataURL(e.target.files[0]);
   }
