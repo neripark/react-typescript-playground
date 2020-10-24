@@ -1,10 +1,7 @@
 import * as React from "react";
-import { RouteComponentProps } from "react-router-dom";
 import * as ExifReader from 'exifreader';
 
-type PageProps = {} & RouteComponentProps<{}>;
-
-const ExifReaderTest: React.FC<PageProps> = () => {
+const useHooks = () => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
@@ -19,12 +16,9 @@ const ExifReaderTest: React.FC<PageProps> = () => {
     reader.readAsArrayBuffer(file);
   }
 
-  return (
-    <>
-      <h1>Exif Reader test.</h1>
-      <input className="file-input-test" type="file" onChange={onChange}/>
-    </>
-  );
+  return {
+    onChange,
+  };
 };
 
-export default ExifReaderTest;
+export default useHooks;
