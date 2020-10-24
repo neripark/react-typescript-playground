@@ -35,6 +35,11 @@ const Navigation: React.FC = () => {
             function prop test
           </Link>
         </li>
+        <li className="Nav-item">
+          <Link to="/exif-reader-test" className="Nav-item-link">
+            ExifReader test
+          </Link>
+        </li>
       </ul>
     </nav>
   );
