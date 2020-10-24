@@ -3,10 +3,13 @@ import * as ExifReader from 'exifreader';
 
 const useHooks = () => {
   const [img, setImg] = React.useState<HTMLImageElement | undefined>();
+  const [targetImg, setTargetImg] = React.useState<HTMLImageElement | undefined>();
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     loadByReader(e);
     loadAsImage(e);
+    loadAsCanvas(e);
   }
 
   const loadByReader = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,9 +17,9 @@ const useHooks = () => {
     if (e.target.files === null) return;
     const file = e.target.files[0];
 
-    // reader onload はイベントを受け取れる。reader 自体を読むよりそのほうがよさそう
-    reader.onload = (e: ProgressEvent<FileReader>) => {
-      const result = e.target!.result;
+    // reader onload は自分自身を受け取れる。reader 自体を読むよりそのほうがよさそう
+    reader.onload = (self: ProgressEvent<FileReader>) => {
+      const result = self.target!.result;
       const tags = ExifReader.load(result as ArrayBuffer)
       console.log(tags.Orientation);
     };
@@ -29,7 +32,10 @@ const useHooks = () => {
     if (e.target.files === null) return;
     const reader = new FileReader();
     const image = new Image();
-    reader.onload = () => {
+    // 自分自身を受け取れる
+    reader.onload = (self: ProgressEvent<FileReader>) => {
+      // base64 が入っている
+      // console.log("log 1", self.target!.result);
       image.onload = () => {
         setImg(image);
       }
@@ -39,9 +45,36 @@ const useHooks = () => {
     reader.readAsDataURL(e.target.files[0]);
   }
 
+  const loadAsCanvas = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files === null) return;
+    const reader = new FileReader();
+    const image = new Image();
+    reader.onload = (self: ProgressEvent<FileReader>) => {
+      image.onload = () => {
+        setImg(image);
+        // --- start ---
+        const ctx = canvasRef.current!.getContext("2d");
+        ctx?.drawImage(image, 0, 0);
+        // --- end ---
+      }
+      if (self.target!.result?.toString() === undefined) return;
+      image.src = self.target!.result?.toString();
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  }
+
+  const handleCanvasToImage = () => {
+    const image = new Image();
+    image.src = canvasRef.current!.toDataURL();
+    setTargetImg(image)
+  }
+
   return {
     onChange,
     img,
+    canvasRef,
+    handleCanvasToImage,
+    targetImg,
   };
 };
 

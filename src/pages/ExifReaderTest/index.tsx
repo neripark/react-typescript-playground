@@ -9,10 +9,11 @@ const ExifReaderTest: React.FC<PageProps> = () => {
   return (
     <>
       <h1>Exif Reader test.</h1>
+      <input className="file-input-test" type="file" onChange={hooks.onChange} />
       <div className="file-unit-container">
-        <input className="file-input-test" type="file" onChange={hooks.onChange}/>
         <div className="image-wrapper">
-          {hooks.img && 
+          <h2>image</h2>
+          {hooks.img &&
             <img
               className="load-image"
               src={hooks.img.src}
@@ -20,6 +21,17 @@ const ExifReaderTest: React.FC<PageProps> = () => {
             />
           }
         </div>
+        <div className="image-wrapper">
+          <h2>canvas</h2>
+          <canvas
+            ref={hooks.canvasRef}
+            className="image-canvas"
+          />
+          <button onClick={hooks.handleCanvasToImage}>to Image</button>
+        </div>
+      </div>
+      <div>
+        { hooks.targetImg && <img src={hooks.targetImg.src} alt="targetImg" /> }
       </div>
     </>
   );
