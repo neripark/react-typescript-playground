@@ -65,7 +65,16 @@ const useHooks = () => {
 
   const handleCanvasToImage = () => {
     const image = new Image();
-    image.src = canvasRef.current!.toDataURL();
+    // (1) 画面の canvas から取得してやる場合
+    // image.src = canvasRef.current!.toDataURL();
+    // setTargetImg(image)
+    // ----------
+    // (2) 画面の canvas から取らずにやる場合
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (img === undefined) return;
+    ctx?.drawImage(img, 0, 0);
+    image.src = canvas.toDataURL();
     setTargetImg(image)
   }
 
