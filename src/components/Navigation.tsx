@@ -11,6 +11,11 @@ const Navigation: React.FC = () => {
           </Link>
         </li>
         <li className="Nav-item">
+          <Link to="/playground" className="Nav-item-link">
+            playground
+          </Link>
+        </li>
+        <li className="Nav-item">
           <Link to="/tutorial" className="Nav-item-link">
             tutorial
           </Link>

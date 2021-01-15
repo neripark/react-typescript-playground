@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Playground from "./pages/Playground";
 import Tutorial from "./pages/Tutorial";
 import NextFocus from "./pages/NextFocus";
 import ContextTest from "./pages/ContextTest";
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         </header>
         <main className="Main">
           <Switch>
+            <Route path="/playground" component={Playground} />
             <Route path="/tutorial" component={Tutorial} />
             <Route path="/nextfocus" component={NextFocus} />
             <Route path="/contexttest" component={ContextTest} />
