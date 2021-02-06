@@ -7,52 +7,52 @@ interface Props {
 
 const buttonFeel = {
   pending: {
-    class: '',
-    label: 'Click!'
+    class: "",
+    label: "Click!"
   },
   progress: {
-    class: '',
-    label: '...'
+    class: "",
+    label: "..."
   },
   resolved: {
-    class: 'success',
-    label: 'success!!'
+    class: "success",
+    label: "success!!"
   },
   rejected: {
-    class: 'error',
-    label: 'error!!'
+    class: "error",
+    label: "error!!"
   }
-}
+};
 
 const AsyncComponent: React.FC<Props> = ({ asyncFunction, className }) => {
-  const [promiseState, setPromiseState] = React.useState<'pending' | 'progress' | 'resolved' | 'rejected'>('pending');
+  const [promiseState, setPromiseState] = React.useState<
+    "pending" | "progress" | "resolved" | "rejected"
+  >("pending");
 
   const handler = () => {
-    setPromiseState('progress')
+    setPromiseState("progress");
     asyncFunction()
       .then(() => {
-        setPromiseState('resolved')
-        console.log('success 3');
+        setPromiseState("resolved");
+        console.log("success 3");
       })
       .catch(() => {
-        setPromiseState('rejected')
-        console.log('error 3');
-      })
-  }
+        setPromiseState("rejected");
+        console.log("error 3");
+      });
+  };
 
   return (
     <>
       <button
         onClick={handler}
         className={`async-component ${buttonFeel[promiseState].class} ${className}`}
-        disabled={promiseState === 'progress'}
+        disabled={promiseState === "progress"}
       >
         {buttonFeel[promiseState].label}
       </button>
     </>
   );
-  
-  
 };
 
 export default AsyncComponent;

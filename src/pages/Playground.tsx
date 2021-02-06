@@ -5,15 +5,12 @@ type PageProps = {} & RouteComponentProps<{}>;
 
 const Playground: React.FC<PageProps> = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value)
-  }
+    console.log(e.target.value);
+  };
   return (
     <>
       <h1>playground page</h1>
-      <input
-        type="text"
-        onChange={(e) => onChange(e)}
-      />
+      <input type="text" onChange={e => onChange(e)} />
     </>
   );
 };

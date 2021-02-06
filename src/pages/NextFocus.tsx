@@ -12,20 +12,19 @@ const NextFocus: React.FC<PageProps> = () => {
   );
 };
 
-
 // https://ja.reactjs.org/docs/refs-and-the-dom.html
 // クラスコンポーネントを使ってrefを学習する
-interface Props1 {};
+interface Props1 {}
 interface State1 {
   myRef: React.RefObject<HTMLDivElement>;
-};
+}
 
 class MyComponent extends React.Component<Props1, State1> {
-  constructor(props: Props1){
+  constructor(props: Props1) {
     super(props);
     this.state = {
       myRef: React.createRef<HTMLDivElement>()
-    }
+    };
   }
 
   private Logger() {
@@ -37,12 +36,10 @@ class MyComponent extends React.Component<Props1, State1> {
     return (
       <>
         <h3>MyComopnent</h3>
-        <div ref={this.state.myRef}>
-          divの中の文字列
-        </div>
+        <div ref={this.state.myRef}>divの中の文字列</div>
         <button onClick={() => this.Logger()}>Logger!</button>
       </>
-    )
+    );
   }
 }
 
