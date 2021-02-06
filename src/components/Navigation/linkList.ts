@@ -3,7 +3,7 @@ type Link = {
   label: string;
 };
 
-const data = [
+const data: Link[] = [
   { href: "/", label: "top" },
   { href: "/playground", label: "playground" },
   { href: "/tutorial", label: "tutorial" },
