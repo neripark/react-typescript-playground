@@ -1,6 +1,8 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { RadioButton } from "../components/Radios";
+import { TestUncontrolled } from "../components/Radios/TestUncontrolled";
+import { TestControlled } from "../components/Radios/TestControlled";
+import { TestRawHtml } from "../components/Radios/TestRawHtml";
 
 type PageProps = {} & RouteComponentProps<{}>;
 
@@ -15,34 +17,12 @@ const Playground: React.FC<PageProps> = () => {
       <input type="text" onChange={e => onChange(e)} />
       <hr />
       <h2>radio buttons</h2>
-      <RadioButton />
+      <h3>非制御で使う</h3>
+      <TestUncontrolled />
+      <h3>制御で使う</h3>
+      <TestControlled />
       <h2>radio buttons by raw html</h2>
-      <RawRadioButtons />
-    </>
-  );
-};
-
-const RawRadioButtons: React.FC = () => {
-  return (
-    <>
-      <div>
-        <label>
-          <input type="radio" name="question1" value="answer1" />
-          <span>回答1</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="radio" name="question1" value="answer2" />
-          <span>回答2</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="radio" name="question1" value="answer3" />
-          <span>回答3</span>
-        </label>
-      </div>
+      <TestRawHtml />
     </>
   );
 };
