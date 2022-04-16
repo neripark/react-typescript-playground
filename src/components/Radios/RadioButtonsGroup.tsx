@@ -8,7 +8,7 @@ interface Props {
 export const RadioButtonsGroup: React.FC<Props> = props => {
   return (
     <div className={`${styles.root} ${styles[`direction-${props.direction}`]}`}>
-      <div>{props.children}</div>
+      {props.children}
     </div>
   );
 };

@@ -8,9 +8,12 @@ interface Props
 
 export const RadioButton: React.FC<Props> = ({ label, ...props }) => {
   return (
-    <label className={styles.root}>
-      <input type="radio" {...props} />
-      <span>{label}</span>
-    </label>
+    // 縦並びと横並び両方に対応させるために空divでラップ
+    <div>
+      <label className={styles.root}>
+        <input type="radio" {...props} />
+        <span>{label}</span>
+      </label>
+    </div>
   );
 };
