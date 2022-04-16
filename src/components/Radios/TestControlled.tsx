@@ -10,7 +10,8 @@ export const TestControlled: React.FC = () => {
   return (
     <>
       <p>{`現在選択されているのは: ${checkedRadio}`}</p>
-      <RadioButtonsGroup>
+      <RadioButtonsGroup direction="y">
+        {/* todo: direction 変えるだけで縦並びに対応させる。 useContext がよさそうかな？ */}
         <RadioButton
           label="選択肢1"
           name="questionControlled"

@@ -1,4 +1,11 @@
 .root {
   display: flex;
+}
+
+.direction-x {
+  flex-direction: row;
+}
+
+.direction-y {
   flex-direction: column;
 }

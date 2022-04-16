@@ -1,6 +1,14 @@
 import * as React from "react";
 import styles from "./RadioButtonsGroup.module.css";
 
-export const RadioButtonsGroup: React.FC = props => {
-  return <div className={styles.root}>{props.children}</div>;
+interface Props {
+  direction: "x" | "y";
+}
+
+export const RadioButtonsGroup: React.FC<Props> = props => {
+  return (
+    <div className={`${styles.root} ${styles[`direction-${props.direction}`]}`}>
+      <div>{props.children}</div>
+    </div>
+  );
 };
